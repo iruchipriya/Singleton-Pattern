@@ -40,3 +40,41 @@ console.log(logger1.getLogs());
 
 console.log(logger2.getLogs());
 // Output: Same as logger1.getLogs(), since logger1 and logger2 are the same instance.
+
+///Another example
+
+let counter = 0;
+ 
+class Counter {
+  getInstance() {
+    return this;
+  }
+ 
+  getCount() {
+    return counter;
+  }
+ 
+  increment() {
+    counter++
+    console.log(counter)
+    return counter;
+    
+  }
+ 
+  decrement() {
+  	counter--
+    console.log(counter)
+    return counter;
+  }
+}
+ 
+const counter1 = new Counter();
+const counter2 = new Counter();
+ 
+console.log(counter1.getInstance() === counter2.getInstance()); // False
+
+counter1.increment();
+counter1.increment();
+counter2.increment();
+
+console.log(counter1.getCount() === counter2.getCount()); // True
